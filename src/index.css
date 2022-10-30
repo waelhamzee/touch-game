@@ -1,0 +1,140 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.wrapper {
+  min-height: 100vh;
+  background-color: black;
+}
+
+.circles {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 500px;
+}
+
+.circle {
+  border-radius: 50%;
+  background-color: rgb(120, 207, 237);
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  opacity: 0;
+  animation: scaleIn 4s infinite cubic-bezier(0.36, 0.11, 0.89, 0.32),
+    backgroundColorPalette 10s infinite;
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.5, 0.5);
+    opacity: 0.5;
+  }
+  to {
+    transform: scale(2.5, 2.5);
+    opacity: 0;
+  }
+}
+
+.btn {
+  background-color: white;
+  color: black;
+  padding: 0.5rem;
+  width: 250px;
+  cursor: pointer;
+  transition: 0.3s linear;
+  border-radius: 10px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+input {
+  padding: 1rem;
+  border: none;
+  background-color: black;
+  user-select: none;
+  color: white;
+  border-bottom: 1px solid white;
+  position: relative;
+}
+
+input:focus {
+  outline: none;
+}
+
+input::placeholder {
+  color: white;
+}
+
+.btn:hover {
+  background-color: black;
+  color: white;
+}
+
+.count-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  color: white;
+}
+
+.box {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+@keyframes backgroundColorPalette {
+  0% {
+    background: #488e99;
+  }
+  25% {
+    background: #4e9ba6;
+  }
+  50% {
+    background: #59a5b1;
+  }
+  75% {
+    background: #66acb7;
+  }
+  100% {
+    background: #74b4be;
+  }
+}
+
+.removed {
+  animation: removeAnimationScaleIn 0.3s linear;
+}
+
+@keyframes removeAnimationScaleIn {
+  100% {
+    transform: scale(0, 0);
+  }
+}
